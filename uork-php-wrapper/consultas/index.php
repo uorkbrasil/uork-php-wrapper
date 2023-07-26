@@ -4,12 +4,7 @@ $resultadoBusca = "";
 if (isset($_POST['search']) || isset($_POST['search_input'])) {
     $inputSearch = addslashes($_POST['search_input']);
     $urlGet = "https://uork.org/search/status/check-account.php?id=" . urlencode($inputSearch); 
-
- 
-
     $resultadoBusca = json_decode(file_get_contents($urlGet),true);
-    
-
     if(!isset($resultadoBusca['email'])) {
         $resultado = "404 | Não encontrado";
     } else {
@@ -17,14 +12,9 @@ if (isset($_POST['search']) || isset($_POST['search_input'])) {
         $resultado .= "Nome: ". $resultadoBusca['nome'] . "\n";
         $resultado .= "ID: ". $resultadoBusca['id'] . "\n";
         $resultado .= "Verificado: ". $resultadoBusca['verificado'] . "\n";
-        $resultado .= "Laara: ". $resultadoBusca['laara'] . "\n";
-        $resultado .= "Uork-V: ". $resultadoBusca['uorkv'] . "\n";
+        $resultado .= "Laara: ". $resultadoBusca['laara'] == 1 || true ? "Sim" : "Não" . "\n";
+        $resultado .= "Uork-V: ". $resultadoBusca['uorkv'] == 1 || true ? "Sim" : "Não . "\n";
     }
-
-
-
-
-
     echo "<script> alert(" . json_encode($resultado) . ") </script>";
 
 }
@@ -32,14 +22,7 @@ if (isset($_POST['search_servicestatus']) || isset($_POST['search_inputservice']
     $inputSearch = addslashes($_POST['search_inputservice']);
     $urlGet = "https://uork.org/search/status/check-status.php?idsolicitacao=" . urlencode($inputSearch); 
 
- 
-
     $resultadoBusca = file_get_contents($urlGet);
-    
-
-
-
-
 
     echo "<script> alert('$resultadoBusca') </script>";
 
@@ -48,8 +31,6 @@ if (isset($_POST['noticias'])) {
     $resultadoBuscaNoticias = "";
     $urlGet = "https://uork.org/search/status/check-noticias.php";
     $resultadoBuscaNoticias = file_get_contents($urlGet);
-    
-
 }
 ?>
 
