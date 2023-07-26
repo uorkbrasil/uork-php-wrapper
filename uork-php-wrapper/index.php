@@ -21,13 +21,6 @@
         <h3 class="text-center mb-2" id="welcome-text" style="color:white">Welcome to the Uork PHP Test API!</h3>
     </div>
 
-    <div class="container text-center">
-        <button class="btn btn-primary">Button 1</button>
-        <button class="btn btn-secondary">Button 2</button>
-        <button class="btn btn-success">Button 3</button>
-        <button class="btn btn-danger">Button 4</button>
-    </div>
-
     <script src="./src/script.js"></script>
 </body>
 </html>
