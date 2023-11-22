@@ -1,9 +1,11 @@
 <?php
 $resultadoBuscaNoticias = "";
 $resultadoBusca = "";
+$apiKey = "SUAAPIKEY";
 if (isset($_POST['search']) || isset($_POST['search_input'])) {
     $inputSearch = addslashes($_POST['search_input']);
-    $urlGet = "https://uork.org/search/status/check-account.php?id=" . urlencode($inputSearch); 
+     
+    $urlGet = "https://uork.org/search/status/check-account.php?apikey='. $apikey.'&id=" . urlencode($inputSearch); 
     $resultadoBusca = json_decode(file_get_contents($urlGet),true);
     if(!isset($resultadoBusca['email'])) {
         $resultado = "404 | Não encontrado";
