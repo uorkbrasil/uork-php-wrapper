@@ -1,11 +1,11 @@
 <?php
 $resultadoBuscaNoticias = "";
 $resultadoBusca = "";
-$apiKey = "SUAAPIKEY";
+$apiKey = "UORK_KEYfqQ7XDiYG81rQFD2Dhu81KhbVd";
 if (isset($_POST['search']) || isset($_POST['search_input'])) {
     $inputSearch = addslashes($_POST['search_input']);
      
-    $urlGet = "https://uork.org/search/status/check-account.php?apikey='. $apikey.'&id=" . urlencode($inputSearch); 
+    $urlGet = "https://uork.org/search/status/check-account.php?apikey=" . $apiKey . "&id=" . urlencode($inputSearch);
     $resultadoBusca = json_decode(file_get_contents($urlGet),true);
     if(!isset($resultadoBusca['email'])) {
         $resultado = "404 | Não encontrado";
@@ -15,7 +15,7 @@ if (isset($_POST['search']) || isset($_POST['search_input'])) {
         $resultado .= "ID: ". $resultadoBusca['id'] . "\n";
         $resultado .= "Verificado: ". $resultadoBusca['verificado'] . "\n";
         $resultado .= "Laara: ". $resultadoBusca['laara'] == 1 || true ? "Sim" : "Não" . "\n";
-        $resultado .= "Uork-V: ". $resultadoBusca['uorkv'] == 1 || true ? "Sim" : "Não . "\n";
+        $resultado .= "Uork-V: ". $resultadoBusca['uorkv'] == 1 || true ? "Sim" : "Não" . "\n";
     }
     echo "<script> alert(" . json_encode($resultado) . ") </script>";
 
